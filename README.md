@@ -44,7 +44,7 @@ Steps
 18. Click "Log In" on the live environment to access the DKan site.
 19. Add "Open Data Federal Agency Extras module" to the git repo and push, then visit Admin > Modules and enable it.
 20. Add "Visualization Entity" and Visualization Entity Charts" to the repo. (https://github.com/NuCivic/visualization_entity and https://github.com/NuCivic/visualization_entity_charts)
-
+21. Add "geo_file_entity" module: https://github.com/NuCivic/geo_file_entity
 20. Populate the site with data.
 
 DKAN Setup
