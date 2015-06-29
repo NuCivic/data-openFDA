@@ -6,5 +6,4 @@ Feature: OpenFDA DKAN
   @api
   Scenario: Test basic functionality.
     Given I am on the homepage
-    Then I should see "This site contains data from open.fda.gov"
-    And I should not see "Demo Data"
+    Then I should see "This site is NuCivic's working prototype as part of the application for the GSA 18F Agile Delivery Blanket Purchase Agreement."
