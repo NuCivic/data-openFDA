@@ -19,15 +19,15 @@ Our prototype will be an instance of the DKAN Open Data Portal, setup with OpenF
 Steps
 -----
 
-1. Create a GitHub Repository.
-2. Download the DKAN Starter repository located at https://github.com/nucivic/data_starter and add to the repo.
+1. Create a GitHub Repository: https://github.com/NuCivic/data-openFDA
+2. Add the DKAN Starter repository located at https://github.com/nucivic/data_starter as a remote and pull the master branch into the repo.
 1. Create a ubuntu 14 server on softlayer.
 2. Login as root.
 3. Run the devshop install script.
 4. Click link to login to devshop.
 5. Go to Admin > Hosting > Devshop > GitHub.
-5. Click "generate personal access token" on github. Create a token and copy it. 
-5. Return to devshop to enter your token and hit save.
+5. Visit https://github.com/settings/tokens. Create a token and copy it. 
+5. Return to devshop to enter your token and hit "Save Configuration".
 5. Click "Create your first project."
 6. Call it "dkan", add this repo as the git url.
 7. Click "show ssh key" to access the server's public key. add it to your github account so the server can clone the repo.
