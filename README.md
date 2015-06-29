@@ -55,6 +55,7 @@ DKAN Setup
   2. Uncheck "Use the default logo".
   3. Click "Choose File" and select your desired logo.
   4. Click "Save configuration".
+4. Add "Open Data Federal Agency Extras module" to the git repo and push, then visit Admin > Modules and enable it.
 
 Testing Deployment
 ------------------
