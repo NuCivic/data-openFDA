@@ -42,5 +42,11 @@ Steps
 16. Go back to devshop, reload the project dashboard and note the "last commit" should now read "x seconds ago".
 17. Click Settings > project settings. Select "live" for "live environment". Hit Save.
 18. Click "Log In" on the live environment to access the DKan site.
-19. Create user accounts for anyone who needs access to the dkan site.
 20. Populate the site with data.
+
+DKAN Setup
+----------
+1. Create user accounts for anyone who needs access to the dkan site.
+2. Turn off registration for anonymous users: 
+  1. Visit admin/config/people/accounts.
+  2. Select "Administrators only" for "Who can register accounts".
