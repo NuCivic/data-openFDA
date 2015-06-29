@@ -68,6 +68,8 @@ Pull Request Environments
 
 Instead of pushing code directly to the `master` branch, and thereby deploying to the live environment, you can create a Pull Request in GitHub on a new branch, and DevShop will create a new environment based on that branch.
 
+If your project is configured to "Delete Pull Request Environments" then the environments will be destroyed when the pull request is merged or closed.
+
 Behat Testing Setup
 -------------------
 
