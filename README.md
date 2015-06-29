@@ -48,5 +48,10 @@ DKAN Setup
 ----------
 1. Create user accounts for anyone who needs access to the dkan site.
 2. Turn off registration for anonymous users: 
-  1. Visit admin/config/people/accounts.
+  1. Visit "Configuration" > "People" > "Account Settings".
   2. Select "Administrators only" for "Who can register accounts".
+3. Add a new logo:
+  1. Visit "Appearance" > "Settings".
+  2. Uncheck "Use the default logo".
+  3. Click "Choose File" and select your desired logo.
+  4. Click "Save configuration".
