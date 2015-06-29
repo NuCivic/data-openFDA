@@ -55,3 +55,37 @@ DKAN Setup
   2. Uncheck "Use the default logo".
   3. Click "Choose File" and select your desired logo.
   4. Click "Save configuration".
+
+Testing Deployment
+------------------
+
+With the Webhook setup, any git pushes to the branch being used for the live environment will automatically be deployed. 
+
+Make a change and commit and push it, then view the devshop dashboard and you should see the deployment of live in progress.
+
+Pull Request Environments
+-------------------------
+
+Instead of pushing code directly to the `master` branch, and thereby deploying to the live environment, you can create a Pull Request in GitHub on a new branch, and DevShop will create a new environment based on that branch.
+
+Behat Testing Setup
+-------------------
+
+DevShop can be configured to automatically run behat tests when you push code to your site.
+
+To enable behat testing:
+
+1. Enable the "DevShop Testing" module.
+2. Visit Project Settings page.
+2. Select "Behat" as the "Test Type".
+3. Enter the path to your behat tests folder into "Behat folder path".  For this repo, it is "tests"
+4. Enter the path to the behat executable. For almost all projects it will be "bin/behat".
+5. Click "Save".
+6. Enable testing on the "live" environment:
+  1. Click "Settings" > "live". or click the Gear icon in an environment and click "Environment settings".
+  2. Check "Run Tests" under "Deployment Hooks".
+  3. Select the tests you wish to run for this environment, or leave unchecked to run them all.
+  4. Click "Save".
+7. Click the "Run Tests" button to try out the test runner or push code to your branch to trigger a test run.
+
+When a pull request environment is created, the live environment will be cloned with all of its settings.  Tests will be run on the PR environment and status will be sent back to GitHub, providing a Continuous Testing infrastructure.
