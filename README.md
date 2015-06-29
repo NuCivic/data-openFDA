@@ -13,8 +13,8 @@ About
 
 Our prototype will be an instance of the DKAN Open Data Portal, setup with OpenFDA data, running on the open source continous testing & delivery platform DevShop.
 
-About DKAN: [nucivic.com/dkan](http://nucivic.com/dkan/)
-About DevShop: [devshop.readthedocs.org](http://devshop.readthedocs.org/)
+- About DKAN: [nucivic.com/dkan](http://nucivic.com/dkan/)
+- About DevShop: [devshop.readthedocs.org](http://devshop.readthedocs.org/)
 
 Steps
 -----
