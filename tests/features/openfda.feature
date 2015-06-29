@@ -7,3 +7,4 @@ Feature: OpenFDA DKAN
   Scenario: Test basic functionality.
     Given I am on the homepage
     Then I should see "This site contains data from open.fda.gov"
+    And I should not see "Demo Data"
