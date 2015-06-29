@@ -32,7 +32,7 @@ Steps
 6. Call it "dkan", add this repo as the git url.
 7. Click "show ssh key" to access the server's public key. add it to your github account so the server can clone the repo.
 8. Click "Next".
-9. Select "Immediate "Deployment" for "Deploy Code Method", Check "Create Environments for Pull Requests", "Delete Pull Request Environments", and "Clone the live environment".  Fill in "docroot" for "Path to Drupal", then click "Next".
+9. Select "Immediate "Deployment" for "Deploy Code Method", Check "Create Environments for Pull Requests", "Delete Pull Request Environments", and "Clone the live environment".  Enter "openfda.nucivic.build" as the "Live Domain", and check "For new environments, create subdomains under Live Domain.".   Fill in "docroot" for "Path to Drupal", then click "Next".
 10. Create a "live" environment, set to master branch.
 11. Click "Next" and wait for your code to clone. 
 12. Select DKAN as the install profile.
@@ -40,7 +40,7 @@ Steps
 14. Click "Setup Webhook". Copy webhook URL and click "Add a Webhook at GitHub.com."
 15. Paste the project's webhook URL into "Payload URL".  Content type should be "application/json", Secret can be empty.  Select "Let me select individual events" and select "Pull Request", "Push", and "Create". Click "Add webhook".
 16. Go back to devshop, reload the project dashboard and note the "last commit" should now read "x seconds ago".
-17. Click Settings > project settings. Select "live" for "live environment". Enter "openfda.nucivic.build" as the "Live Domain".  Hit Save.
+17. Click Settings > project settings. Select "live" for "live environment". Hit Save.
 18. Click "Log In" on the live environment to access the DKan site.
 19. Create user accounts for anyone who needs access to the dkan site.
 20. Populate the site with data.
