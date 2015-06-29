@@ -42,6 +42,9 @@ Steps
 16. Go back to devshop, reload the project dashboard and note the "last commit" should now read "x seconds ago".
 17. Click Settings > project settings. Select "live" for "live environment". Hit Save.
 18. Click "Log In" on the live environment to access the DKan site.
+19. Add "Open Data Federal Agency Extras module" to the git repo and push, then visit Admin > Modules and enable it.
+20. Add "Visualization Entity" and Visualization Entity Charts" to the repo. (https://github.com/NuCivic/visualization_entity and https://github.com/NuCivic/visualization_entity_charts)
+
 20. Populate the site with data.
 
 DKAN Setup
@@ -55,7 +58,7 @@ DKAN Setup
   2. Uncheck "Use the default logo".
   3. Click "Choose File" and select your desired logo.
   4. Click "Save configuration".
-4. Add "Open Data Federal Agency Extras module" to the git repo and push, then visit Admin > Modules and enable it.
+
 
 Testing Deployment
 ------------------
