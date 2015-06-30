@@ -95,3 +95,12 @@ To enable behat testing:
 7. Click the "Run Tests" button to try out the test runner or push code to your branch to trigger a test run.
 
 When a pull request environment is created, the live environment will be cloned with all of its settings.  Tests will be run on the PR environment and status will be sent back to GitHub, providing a Continuous Testing infrastructure.
+
+Running "Locally"
+=================
+
+Because this is just a Drupal site, it can be run locally on any number of tools: Acquia DevDeskop, MAMP, Kalabox, Vagrant, etc.
+
+We've created a new tool for launching Drupal sites very easily on Docker containers called [Terra](https://github.com/terra-ops/terra-app)".  
+
+To get this site running on Terra, follow the [Installation Instructions](http://terra.readthedocs.org/en/latest/install/), then the [Setting up a Drupal Site instructions](http://terra.readthedocs.org/en/latest/drupal/).
