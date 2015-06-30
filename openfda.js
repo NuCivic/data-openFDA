@@ -5,19 +5,40 @@ var OpenFDA = {};
   "use strict";
   my.__type__ = 'openfda';
 
-
   // TODO: add options for all 6 endpoints.
   var URL = 'https://api.fda.gov/food/enforcement.json';
 
   // use either jQuery or Underscore Deferred depending on what is available
   var Deferred = (typeof jQuery !== "undefined" && jQuery.Deferred) || _.Deferred;
 
+  my.processURL = function(dataset) {
+    if(dataset.type == 'drug' && dataset.area == 'event'){
+    }
+    else if(dataset.type == 'drug' && dataset.area == 'label'){
+    }
+    else if(dataset.type == 'drug' && dataset.area == 'enforcement'){
+      return 'https://api.fda.gov/drug/enforcement.json';
+    }
+    else if(dataset.type == 'device' && dataset.area == 'event'){
+    }
+    else if(dataset.type == 'device' && dataset.area == 'enforcement'){
+    }
+    else if(dataset.type == 'food' && dataset.area == 'enforcement'){
+    }
+  };
+
   // fetch initial rows
   my.fetch = function(dataset) {
     var dfd = new Deferred();
-    jQuery.get(URL).done(function(data) {
+    var URL = my.processURL(dataset);
+    jQuery.ajax({
+      type: "GET",
+      url: URL,
+      data: {limit: 10},
+      dataType: "json"
+    }).done(function(data) {
       var out = my.parse(data);
-      out.useMemoryStore = true;
+      out.fields = my.extractFields(dataset);
       dfd.resolve(out);
     });
     return dfd.promise();
@@ -25,31 +46,65 @@ var OpenFDA = {};
 
   my.query = function(dataset) {
     // total number of results (can be null)
-    total: {}, 
+    //total: {}, 
     // one entry for each result record
-    hits: [
-      {
+    //hits: [
+      //{
         // JS object that can be used to initialize a Record object
-      } 
-    ],
+      //} 
+    //],
     // (optional) 
-    facets: {
+    //facets: {
       // facet results (as per <http://www.elasticsearch.org/guide/reference/api/search/facets/>)
-    }
+    //}
+  };
+
+  my.FieldList = function(fields) {
+   if (recline.typeOf !== 'undefined') {
+     console.log(fields);
+     return new recline.Model.FieldList(fields);
+   }
+   else {
+     return fields;
+   }
   };
 
   // todo: provide field mapping for each endpoint
-  my.fields = function(endpoint) {
-    if (endpoint == 'enforcement') {
-      // return enforcement fields
-    } else {
+  my.extractFields = function(dataset) {
+    var fields = {};
+    if(dataset.type == 'drug' && dataset.area == 'event'){
     }
+    else if(dataset.type == 'drug' && dataset.area == 'label'){
+    }
+    else if(dataset.type == 'drug' && dataset.area == 'enforcement'){
+      fields = [{
+        id: 'recalling_firm',
+        label: 'recalling_firm',
+        type: 'string'
+      },
+      {
+        id: 'classification',
+        label: 'classification',
+        type: 'string'
+      }];
+    }
+    else if(dataset.type == 'device' && dataset.area == 'event'){
+    }
+    else if(dataset.type == 'device' && dataset.area == 'enforcement'){
+    }
+    else if(dataset.type == 'food' && dataset.area == 'enforcement'){
+    }
+    return my.FieldList(fields);
   };
 
 
   // ## parse
   my.parse= function(data) {
     // TODO: any parsing. 
+    var out = {};
+    out.records = data.results;
+    out.useMemoryStore = true;
+    return out;
   };
 
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<title>OpenFDA.js Example</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<script type="text/javascript" src="http://okfnlabs.org/recline/dist/recline.js"></script>
+
+</head>
+<body>
+<h1>Test</h1>
+
+<script type="text/javascript" src="openfda.js"></script>
+<script type="text/javascript">
+;(function($) {
+  'use strict';
+
+  $(document).on('ready', function(){
+
+    var backend = {
+      type: 'drug',        // drug, device, food
+      area: 'enforcement'  // event, label, enforcement for drug
+    }                      // event, enforcement for device
+                           // enforcement for food
+
+    OpenFDA.fetch(backend).done(function(out) {
+      console.log(out);
+    });
+
+  });
+})(jQuery);
+</script>
+</body>
