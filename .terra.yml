@@ -1,0 +1,12 @@
+
+hooks:
+  create: |
+    mkdir sites/default/files
+    chmod 777 sites/default/files
+  test: |
+    cd tests
+    composer install
+    bin/behat
+  deploy: |
+    drush updb -y
+    drush cc all
