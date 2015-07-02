@@ -13,6 +13,7 @@ var OpenFDA = {};
 
   my.processURL = function(dataset) {
     if(dataset.type == 'drug' && dataset.area == 'event'){
+      return 'https://api.fda.gov/drug/event.json';
     }
     else if(dataset.type == 'drug' && dataset.area == 'label'){
     }
@@ -44,19 +45,22 @@ var OpenFDA = {};
     return dfd.promise();
   };
 
-  my.query = function(dataset) {
-    // total number of results (can be null)
-    //total: {}, 
-    // one entry for each result record
-    //hits: [
-      //{
-        // JS object that can be used to initialize a Record object
-      //} 
-    //],
-    // (optional) 
-    //facets: {
-      // facet results (as per <http://www.elasticsearch.org/guide/reference/api/search/facets/>)
-    //}
+  my.query = function(queryObj, dataset) {
+    var dfd = new Deferred();
+    var URL = my.processURL(dataset);
+
+      //Improve the data arguments. Is a problem if we use serialize data because strings X TO X is a problem.
+    jQuery.ajax({
+        type: "GET",
+        url: URL,
+        data: "search="  + queryObj.search + "&" + "count=" + queryObj.count + "&limit=" + "10",
+        dataType: "json"
+    }).done(function(data) {
+        var out = my.parse(data);
+        out.fields = my.extractFields(dataset);
+        dfd.resolve(out);
+    });
+    return dfd.promise();
   };
 
   my.FieldList = function(fields) {

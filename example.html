@@ -19,12 +19,22 @@
 
     var backend = {
       type: 'drug',        // drug, device, food
-      area: 'enforcement'  // event, label, enforcement for drug
+      area: 'event'  // event, label, enforcement for drug
     }                      // event, enforcement for device
                            // enforcement for food
 
     OpenFDA.fetch(backend).done(function(out) {
       console.log(out);
+    });
+
+    OpenFDA.query({
+        search: 'receivedate:[20040101+TO+20150101]',
+        count: 'receivedate',
+        filters: [
+        ]
+    }, backend).done(function(out) {
+        console.log('hola');
+        console.log(out);
     });
 
   });
