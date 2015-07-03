@@ -30,10 +30,11 @@
     OpenFDA.query({
         search: 'receivedate:[20040101+TO+20150101]',
         count: 'receivedate',
+        limit: 10,
+        skip: 0,
         filters: [
         ]
     }, backend).done(function(out) {
-        console.log('hola');
         console.log(out);
     });
 

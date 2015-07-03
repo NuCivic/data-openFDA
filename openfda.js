@@ -16,15 +16,19 @@ var OpenFDA = {};
       return 'https://api.fda.gov/drug/event.json';
     }
     else if(dataset.type == 'drug' && dataset.area == 'label'){
+      return 'https://api.fda.gov/drug/label.json';
     }
     else if(dataset.type == 'drug' && dataset.area == 'enforcement'){
       return 'https://api.fda.gov/drug/enforcement.json';
     }
     else if(dataset.type == 'device' && dataset.area == 'event'){
+      return 'https://api.fda.gov/device/event.json';
     }
     else if(dataset.type == 'device' && dataset.area == 'enforcement'){
+      return 'https://api.fda.gov/device/enforcement.json';
     }
     else if(dataset.type == 'food' && dataset.area == 'enforcement'){
+      return 'https://api.fda.gov/food/enforcement.json';
     }
   };
 
@@ -53,7 +57,7 @@ var OpenFDA = {};
     jQuery.ajax({
         type: "GET",
         url: URL,
-        data: "search="  + queryObj.search + "&" + "count=" + queryObj.count + "&limit=" + "10",
+        data: "search="  + queryObj.search + "&" + "count=" + queryObj.count + "&limit=" + queryObj.limit + '&skip=' + queryObj.skip,
         dataType: "json"
     }).done(function(data) {
         var out = my.parse(data);
@@ -76,9 +80,17 @@ var OpenFDA = {};
   // todo: provide field mapping for each endpoint
   my.extractFields = function(dataset) {
     var fields = {};
-    if(dataset.type == 'drug' && dataset.area == 'event'){
-    }
-    else if(dataset.type == 'drug' && dataset.area == 'label'){
+    if(dataset.type == 'drug' && (dataset.area == 'event' || dataset.area == 'label')){
+      fields = [{
+          id: 'time',
+          label: 'time',
+          type: 'number'
+      },
+      {
+          id: 'count',
+          label: 'count',
+          type: 'number'
+      }];
     }
     else if(dataset.type == 'drug' && dataset.area == 'enforcement'){
       fields = [{
@@ -93,10 +105,40 @@ var OpenFDA = {};
       }];
     }
     else if(dataset.type == 'device' && dataset.area == 'event'){
+      fields = [{
+          id: 'time',
+          label: 'time',
+          type: 'number'
+      },
+      {
+          id: 'count',
+          label: 'count',
+          type: 'number'
+      }];
     }
     else if(dataset.type == 'device' && dataset.area == 'enforcement'){
+        fields = [{
+            id: 'time',
+            label: 'time',
+            type: 'number'
+        },
+       {
+           id: 'count',
+           label: 'count',
+           type: 'number'
+       }];
     }
     else if(dataset.type == 'food' && dataset.area == 'enforcement'){
+      fields = [{
+          id: 'time',
+          label: 'time',
+          type: 'number'
+      },
+      {
+          id: 'count',
+          label: 'count',
+          type: 'number'
+      }];
     }
     return my.FieldList(fields);
   };
