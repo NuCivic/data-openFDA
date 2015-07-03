@@ -5,8 +5,14 @@ Open FDA Data Portal
 
 This repo is NuCivic's working prototype as part of the application for the GSA 18F Agile Delivery Blanket Purchase Agreement.
 
+This README is in progress and will be edited up until the deadline of the application.
+
+It will be edited down to the required 750 words.
+
 About
 -----
+
+http://openfda.nucivic.build
 
 ### DKAN on DevShop
 *Open Data Portal on an Open Source Web Stack*
@@ -15,6 +21,15 @@ Our prototype will be an instance of the DKAN Open Data Portal, setup with OpenF
 
 - About DKAN: [nucivic.com/dkan](http://nucivic.com/dkan/)
 - About DevShop: [devshop.readthedocs.org](http://devshop.readthedocs.org/)
+
+Goals
+-----
+- [x] Quickly stand up a data portal with links to the datasets available on open.fda.gov: http://openfda.nucivic.build 
+- [x] Setup a continuous testing & delivery server in minutes with entirely open source software ([DevShop](http://github.com/opendevshop/devshop) & (Terra)[http://github.com/terra-ops/terra]).
+- [x] Demonstrate quick and easy localhost development with (Terra)[http://github.com/terra-ops/terra], which uses docker containers.
+- [x] Demonstrate quick and easy scaling with (Terra)[http://github.com/terra-ops/terra].
+- [ ] Create a [Recline](http://okfnlabs.org/recline/) backend for OpenFDA: https://github.com/NuCivic/openfda.js
+- [ ] Create tools to import large datasets directly into Drupal Search API powered back-ends like Solr.  (If possible.)
 
 Steps
 -----
