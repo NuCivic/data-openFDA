@@ -27,20 +27,15 @@ var createMultiView = function(dataset, state) {
         model: dataset,
         state: {
           gridOptions: {
-            editable: true,
-            // Enable support for row add
-            enabledAddRow: true,
-            // Enable support for row delete
-            enabledDelRow: true,
-            // Enable support for row ReOrder 
-            enableReOrderRow:true,
+            // TODO:
+            // Fix sortable by default upstream. 
+            editable: false,
+            enabledAddRow: false,
+            enabledDelRow: false,
+            enableReOrderRow:false,
             autoEdit: false,
-            enableCellNavigation: true
+            enableCellNavigation: false
           },
-          columnsEditor: [
-            { column: 'date', editor: Slick.Editors.Date },
-            { column: 'sometext', editor: Slick.Editors.Text }
-          ]
         }
       })
     },
@@ -50,13 +45,6 @@ var createMultiView = function(dataset, state) {
       view: new recline.View.Graph({
         model: dataset
 
-      })
-    },
-    {
-      id: 'map',
-      label: 'Map',
-      view: new recline.View.Map({
-        model: dataset
       })
     }
   ];

@@ -3130,6 +3130,8 @@ my.SlickGrid = Backbone.View.extend({
       }, modelEtc.state
 
     );
+    console.log(state);
+    console.log(modelEtc.state);
     this.state = new recline.Model.ObjectState(state);
     this._slickHandler = new Slick.EventHandler();
 
@@ -3219,7 +3221,7 @@ my.SlickGrid = Backbone.View.extend({
         id: 'del',
         name: '',
         field: 'del',
-        sortable: true,
+        sortable: false,
         width: 38,
         formatter: formatter,
         validator:validator
@@ -3236,7 +3238,7 @@ my.SlickGrid = Backbone.View.extend({
         id: field.id,
         name: sanitizeFieldName(field.label),
         field: field.id,
-        sortable: true,
+        sortable: false,
         minWidth: 80,
         formatter: formatter,
         validator:validator(field)

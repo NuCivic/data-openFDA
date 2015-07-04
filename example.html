@@ -80,20 +80,18 @@
     }                      // event, enforcement for device
                            // enforcement for food
 
-    OpenFDA.fetch(backend).done(function(out) {
-      console.log(out);
-    });
 
-    OpenFDA.query({
-        search: 'patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"',
-        count: 'patient.reaction.reactionmeddrapt.exact',
-        limit: 10,
-        skip: 0,
-        filters: [
-        ]
-    }, backend).done(function(out) {
-        createMultiView(out);
+    var dataset, views;
+    dataset = new recline.Model.Dataset({
+      backend: 'openfda',
+      type: 'drug',
+      area: 'event'
     });
+    dataset.fetch();
+    console.log(dataset);
+    views = createMultiView(dataset);
+
+
 
   });
 })(jQuery);

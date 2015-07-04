@@ -5,9 +5,6 @@ var OpenFDA = {};
   "use strict";
   my.__type__ = 'openfda';
 
-  // TODO: add options for all 6 endpoints.
-  var URL = 'https://api.fda.gov/food/enforcement.json';
-
   // use either jQuery or Underscore Deferred depending on what is available
   var Deferred = (typeof jQuery !== "undefined" && jQuery.Deferred) || _.Deferred;
 
@@ -42,8 +39,11 @@ var OpenFDA = {};
       data: {limit: 10},
       dataType: "json"
     }).done(function(data) {
-      var out = my.parse(data);
-      out.fields = my.extractFields(dataset);
+      var out = {};
+      out.records = data.results;
+      out.useMemoryStore = false;
+      out.fields = my.autoExtractFields(data.results[0]);
+      out.total = data.meta.results.total;
       dfd.resolve(out);
     });
     return dfd.promise();
@@ -52,32 +52,44 @@ var OpenFDA = {};
   my.query = function(queryObj, dataset) {
     var dfd = new Deferred();
     var URL = my.processURL(dataset);
+    queryObj.limit = 10;
+    console.log(queryObj);
 
-      //Improve the data arguments. Is a problem if we use serialize data because strings X TO X is a problem.
+    var query;
+    var size = queryObj.size || 100;
+    query = "limit=" + size;
+    if (queryObj.from) {
+      query = query + "&skip=" + queryObj.from;
+    }
+    if (queryObj.filters) {
+      _.each(queryObj.filters, function(val, id) {
+        if (id > 0) {
+          query = query + '+AND+' + val.field + ':' + val.term;
+        }
+        else {
+          query = query + '&search=' + val.field + ':' + val.term;
+        }
+      });
+    }
+      
+    console.log(query);
     jQuery.ajax({
         type: "GET",
         url: URL,
-        data: "search="  + queryObj.search + "&" + "count=" + queryObj.count + "&limit=" + queryObj.limit + '&skip=' + queryObj.skip,
+        data: query,
         dataType: "json"
     }).done(function(data) {
-        var out = my.parse(data);
-        out.fields = my.extractFields(dataset);
-
-        var dataset_1 = new recline.Model.Dataset({
-            records: out.records,
-            // let's be really explicit about fields
-            // Plus take opportunity to set date to be a date field and set some labels
-            fields: [
-                {id: 'term', type: 'string'},
-                {id: 'count', type: 'number'},
-            ],
-        });
-        dfd.resolve(dataset_1);
+        var out = {};
+        out.total = data.meta.results.total;
+        out.fields = my.autoExtractFields(data.results[0]);
+        out.hits = data.results;
+        dfd.resolve(out);
     });
     return dfd.promise();
   };
 
   my.FieldList = function(fields) {
+ 
    if (recline.typeOf !== 'undefined') {
      return new recline.Model.FieldList(fields);
    }
@@ -86,7 +98,31 @@ var OpenFDA = {};
    }
   };
 
-  // todo: provide field mapping for each endpoint
+  my.autoExtractFields = function(record) {
+    var fields = [];
+    _.each(record, function(value, field) {
+      if (field.substring(0, 1) == "@") {
+        field = field.substring(1, field.length);
+      }
+      if (typeof record[field] === 'blobject') {
+        _.each(record[field], function(value, subfield) {
+          var id = field + '-' + subfield;
+          fields.push({'id': id});
+        });
+      }
+      else {
+        if (field.includes('date')) {
+          var type = 'date';
+        }
+        else {
+          var type = 'string';
+        }
+        fields.push({'id': field, 'type' : type});
+      }
+    });
+    var out = my.FieldList(fields);
+    return out.models;
+  }
   my.extractFields = function(dataset) {
     var fields = {};
     if(dataset.type == 'drug' && (dataset.area == 'event' || dataset.area == 'label')){
@@ -94,6 +130,11 @@ var OpenFDA = {};
           id: 'time',
           label: 'time',
           type: 'number'
+      },
+      {
+          id: 'companynumb',
+          label: 'company number',
+          type: 'string'
       },
       {
           id: 'count',
@@ -149,7 +190,8 @@ var OpenFDA = {};
           type: 'number'
       }];
     }
-    return my.FieldList(fields);
+    var out = my.FieldList(fields);
+    return out.models;
   };
 
 
