@@ -62,14 +62,23 @@ var OpenFDA = {};
     }).done(function(data) {
         var out = my.parse(data);
         out.fields = my.extractFields(dataset);
-        dfd.resolve(out);
+
+        var dataset_1 = new recline.Model.Dataset({
+            records: out.records,
+            // let's be really explicit about fields
+            // Plus take opportunity to set date to be a date field and set some labels
+            fields: [
+                {id: 'term', type: 'string'},
+                {id: 'count', type: 'number'},
+            ],
+        });
+        dfd.resolve(dataset_1);
     });
     return dfd.promise();
   };
 
   my.FieldList = function(fields) {
    if (recline.typeOf !== 'undefined') {
-     console.log(fields);
      return new recline.Model.FieldList(fields);
    }
    else {
