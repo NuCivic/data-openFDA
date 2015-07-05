@@ -1,0 +1,8 @@
+.recline-slickgrid {
+  height: 300px;
+}
+.changelog {
+  display: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}

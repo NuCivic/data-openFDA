@@ -1,26 +1,30 @@
-;(function($) {
+;(function(){
   'use strict';
 
   $(document).on('ready', function(){
+    var state = new recline.Model.ObjectState();
+    var sharedObject = {state: state};
 
-    var backend = {
-      type: 'drug',        // drug, device, food
-      area: 'event'  // event, label, enforcement for drug
-    }                      // event, enforcement for device
-                           // enforcement for food
-
-
-    var dataset, views;
-    dataset = new recline.Model.Dataset({
-      backend: 'openfda',
-      type: 'drug',
-      area: 'event'
+    var msv = new MultiStageView({
+      state: state,
+      el: $('#steps')
     });
-    dataset.fetch();
-    console.log(dataset);
-    views = createMultiView(dataset);
 
+    msv.on('multistep:change', function(e){
+     $("#example").hide(); 
+    });
 
+    window.router = new recline.URLState();
+    msv.addStep(new LoadDataView(sharedObject));
+    msv.addStep(new DataOptionsView(sharedObject));
+    msv.addStep(new ChooseChartView(sharedObject));
+    msv.addStep(new ChartOptionsView(sharedObject));
+    msv.addStep(new PublishView(sharedObject));
+    msv.render();
 
+    // only useful in devel
+    window.msv = msv;
+    window.sharedObject = sharedObject;
   });
-})(jQuery);
+
+})(window);
