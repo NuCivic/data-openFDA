@@ -1,27 +1,51 @@
 Team
-----
+====
 
-**Jon Pugh**
+## Jon Pugh
 
+https://github.com/jonpugh
+
+Roles:
 - Product Manager
 - DevOps Engineer
 
-**Federica Pelzel**
+Responsibilities:
+- Implemented hosting & testing environments.
+- Prepared DKAN site for use by team.
+- Assisted in population of datasets.
+- Lead writing of documentation, README, TEAM, Blog, etc.
 
+## Federica Pelzel
+
+https://github.com/federicca
+
+Roles:
 - Interaction Designer/User Researcher/Usability Tester
 
-**Aaron Couch**
+Responsibilities:
+- Setup DKAN front-page, groups, and content.
+- Guided project plan and direction.
+- DKAN Product Lead.
 
+## Aaron Couch
+
+https://github.com/acouch
+
+Roles:
 - Technical Architect
 
-Developed openfda.js: Recline Backend for Chartmaker: https://github.com/NuCivic/openfda.js
+Responsibilities:
+- Developed Recline backend for OpenFDA data: https://github.com/NuCivic/openfda.js
+- Assisted in integrating charts in DKAN.
 
-**Jacinto Capote**
+## Jacinto Capote
 
+Roles:
 - Back End Web Developer
 
-Contributed to openfda.js: https://github.com/NuCivic/openfda.js/commits/master
+Responsibilities:
+- Contributed to openfda.js: https://github.com/NuCivic/openfda.js/commits/master
 
-**Andrew Hoppin**
-
+## Andrew Hoppin
+Roles:
 - Writer/Content Designer/Content Strategist
