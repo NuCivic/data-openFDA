@@ -10,3 +10,4 @@ Feature: OpenFDA DKAN
     And I click on "Drugs: Enforcement reports"
     And I click on "Drugs: Enforcement reports: Enforcement reports over time"
     Then I should see "Drugs: Enforcement reports: Enforcement reports over time"
+    And I should see "Link to API"
