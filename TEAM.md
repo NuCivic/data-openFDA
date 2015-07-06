@@ -40,6 +40,8 @@ Responsibilities:
 
 ## Jacinto Capote
 
+https://github.com/jacintocapote
+
 Roles:
 - Back End Web Developer
 
@@ -47,5 +49,8 @@ Responsibilities:
 - Contributed to openfda.js: https://github.com/NuCivic/openfda.js/commits/master
 
 ## Andrew Hoppin
+
+https://github.com/andrewhoppin
+
 Roles:
 - Writer/Content Designer/Content Strategist
