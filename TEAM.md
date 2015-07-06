@@ -47,10 +47,3 @@ Roles:
 
 Responsibilities:
 - Contributed to openfda.js: https://github.com/NuCivic/openfda.js/commits/master
-
-## Andrew Hoppin
-
-https://github.com/andrewhoppin
-
-Roles:
-- Writer/Content Designer/Content Strategist
