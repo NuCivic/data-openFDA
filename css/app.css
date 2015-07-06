@@ -8,5 +8,7 @@
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
 }
-.slick-header-sortable {
+#data-preview {
+  clear: both;
+  padding 60px 0 0 0;
 }

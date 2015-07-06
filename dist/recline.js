@@ -479,7 +479,9 @@ my.Dataset = Backbone.Model.extend({
 
       self.set(results.metadata);
       self.fields.reset(out.fields);
-      self.query()
+      console.log(self.attributes);
+      var query = self.attributes.queryObj || null;
+      self.query(query)
         .done(function() {
           dfd.resolve(self);
         })
@@ -3130,8 +3132,6 @@ my.SlickGrid = Backbone.View.extend({
       }, modelEtc.state
 
     );
-    console.log(state);
-    console.log(modelEtc.state);
     this.state = new recline.Model.ObjectState(state);
     this._slickHandler = new Slick.EventHandler();
 

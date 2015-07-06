@@ -43,7 +43,12 @@ var OpenFDA = {};
       out.records = data.results;
       out.useMemoryStore = false;
       out.fields = my.autoExtractFields(data.results[0]);
-      out.total = data.meta.results.total;
+      if(data.meta.results) {
+        out.total = data.meta.results.total || data.results.length;
+      }
+      else {
+        out.total = data.results.length;
+      }
       dfd.resolve(out);
     });
     return dfd.promise();
@@ -51,7 +56,6 @@ var OpenFDA = {};
 
   my.createQuery = function(queryObj) {
     var query;
-    console.log(queryObj);
     var size = queryObj.size || 100;
     query = "limit=" + size;
     if (queryObj.from) {
@@ -67,6 +71,9 @@ var OpenFDA = {};
         }
       });
     }
+    if (queryObj.searchField && queryObj.searchItem) {
+          //query = query + '&search=' + val.field + ':' + val.term;
+    }
     if (queryObj.count) {
       query = query + '&count=' + queryObj.count;
     }
@@ -77,10 +84,8 @@ var OpenFDA = {};
     var dfd = new Deferred();
     var URL = my.processURL(dataset);
     queryObj.limit = 10;
-    console.log(queryObj);
     var query = my.createQuery(queryObj);
       
-    console.log(query);
     jQuery.ajax({
       type: "GET",
       url: URL,
@@ -96,8 +101,6 @@ var OpenFDA = {};
       }
       out.fields = my.autoExtractFields(data.results[0]);
       out.hits = data.results;
-      console.log(out);
-      console.log(this);
       dfd.resolve(out);
     });
     return dfd.promise();
@@ -138,85 +141,9 @@ var OpenFDA = {};
     var out = my.FieldList(fields);
     return out.models;
   }
-  my.extractFields = function(dataset) {
-    var fields = {};
-    if(dataset.type == 'drug' && (dataset.area == 'event' || dataset.area == 'label')){
-      fields = [{
-          id: 'time',
-          label: 'time',
-          type: 'number'
-      },
-      {
-          id: 'companynumb',
-          label: 'company number',
-          type: 'string'
-      },
-      {
-          id: 'count',
-          label: 'count',
-          type: 'number'
-      }];
-    }
-    else if(dataset.type == 'drug' && dataset.area == 'enforcement'){
-      fields = [{
-        id: 'recalling_firm',
-        label: 'recalling_firm',
-        type: 'string'
-      },
-      {
-        id: 'classification',
-        label: 'classification',
-        type: 'string'
-      }];
-    }
-    else if(dataset.type == 'device' && dataset.area == 'event'){
-      fields = [{
-          id: 'time',
-          label: 'time',
-          type: 'number'
-      },
-      {
-          id: 'count',
-          label: 'count',
-          type: 'number'
-      }];
-    }
-    else if(dataset.type == 'device' && dataset.area == 'enforcement'){
-        fields = [{
-            id: 'time',
-            label: 'time',
-            type: 'number'
-        },
-       {
-           id: 'count',
-           label: 'count',
-           type: 'number'
-       }];
-    }
-    else if(dataset.type == 'food' && dataset.area == 'enforcement'){
-      fields = [{
-          id: 'time',
-          label: 'time',
-          type: 'number'
-      },
-      {
-          id: 'count',
-          label: 'count',
-          type: 'number'
-      }];
-    }
-    var out = my.FieldList(fields);
-    return out.models;
-  };
-
 
   // ## parse
   my.parse= function(data) {
-    // TODO: any parsing. 
-    var out = {};
-    out.records = data.results;
-    out.useMemoryStore = true;
-    return out;
   };
 
 

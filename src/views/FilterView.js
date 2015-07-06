@@ -22,15 +22,18 @@
                       '<option value="{{value}}" {{#selected}} selected{{/selected}}>{{name}}</option>' +
                     '{{/searchFields}}' +
                   '</select>' +
-                  '<input type="text" class="form-control" placeholder="Listeria">' +
+                  '<input type="text" id="control-chart-search-item" class="form-control" placeholder="Listeria">' +
                   '<span class="help-block">Select one field and enter a search term.</span>' +
                 '</div>' +
                 '<div id="controls">' +
                   '<div id="prev" class="btn btn-default pull-left">Back</div>' +
                   '<div id="next" class="btn btn-primary pull-right">Next</div>' +
                 '</div>' +
-                '<div class="form-group relative">' +
+                '<div class="form-group relative" id="data-preview">' +
                   '<h3>Data Preview</h3>' +
+                  '<div id="results-preview-wrapper">' +
+                    '<strong>Results:</strong> <span id="results">{{results}}</span>' +
+                  '</div>' +
                   '<div id="grid-preview-wrapper">' +
                     '<div id="grid-preview"></div>' +
                   '</div>' +
@@ -47,6 +50,7 @@
     },
     events: {
       'change select': 'updateQuery',
+      'blur input[type="text"]': 'updateQuery'
     },
     render: function(){
       var self = this;
@@ -60,18 +64,15 @@
       var fields = _.getFields(self.state.get('model'))
       fields.unshift("");
       self.state.set('searchFields', _.applyOption(
-        _.arrayToOptions(fields), self.state.get('searchFields')
+        _.arrayToOptions(fields), self.state.get('searchField')
       ));
       self.state.set('queryFields', _.applyOption(
-        _.arrayToOptions(fields), self.state.get('queryFields')
+        _.arrayToOptions(fields), self.state.get('countField')
       ));
+      self.state.set('results', model.recordCount);
 
       self.$el.html(Mustache.render(self.template, self.state.toJSON()));
       self.$('.chosen-select').chosen({width: '95%'});
-      var model = self.state.get('model');
-      var FieldList = recline.Backend.OpenFDA.autoExtractFields(model.records.models[0].attributes);
-      model.fields = new recline.Model.FieldList(FieldList);
-      console.log(model);
 
       self.gridPreview = new recline.View.SlickGrid({
         model: model,
@@ -79,6 +80,7 @@
       });
       self.gridPreview.visible = true;
       self.gridPreview.setElement(self.$('#grid-preview')).render();
+      // Fix column widths.
       var cols = self.gridPreview.grid.getColumns();
       var i = 0;
       while (cols.length > i) {
@@ -91,53 +93,45 @@
     },
     updateQuery: function(a, b) {
       var self = this;
-
-
-
-      // TOOOODOOO:
-      // TODO:
-      // 
-      // 1) update model upon update
-      // 2) get udpated query
-      // 3) apply updated query to slickgridgT
-      //
-      console.log('stf');
-      var options = self.state.get('options') || {};
       var searchField = self.$('#control-chart-search').val();
-      var xField = self.$('#control-chart-xfield').val();
+      var searchItem = self.$('#control-chart-search-item').val();
       var countField = self.$('#control-chart-query-count').val();
-      console.log(seriesFields);
-      console.log(xField);
-      console.log(countField);
-      var model = self.state.get('model');
-      model.set({count: countField});
-      model.query({count: countField}).done(function(d) {
-        var FieldList = recline.Backend.OpenFDA.autoExtractFields(d.models[0].attributes);
-        model.fields = new recline.Model.FieldList(FieldList);
-        //model.fields = recline.Backends.OpenFDA.autoExtractFields(model.records.models[0].attributes)
-        console.log(model);
-        // add query-count
-        // add search
-        // add fields = series fields + queryFields
-   //     console.log(model);
+      var newQuery = {};
+      if (countField) {
+        newQuery.count = countField;
+      }
+      if (searchField && searchItem) {
+        newQuery.filters = [{field: searchField, term: searchItem, type: 'term'}];
+      }
+      if (newQuery.filters || newQuery.count) {
+        console.log(newQuery);
+        var model = self.state.get('model');
+        // Hack to preserve query.
+        // TODO: translate to URL?
+        model.attributes.queryObj = newQuery;
+        self.state.set('model', model);
+        model.query(newQuery).done(function(d) {
+          var FieldList = recline.Backend.OpenFDA.autoExtractFields(d.models[0].attributes);
+          model.fields = new recline.Model.FieldList(FieldList);
+          //model.fields = recline.Backends.OpenFDA.autoExtractFields(model.records.models[0].attributes)
+          console.log(model);
 
-        var query = recline.Backend.OpenFDA.createQuery(model.queryState.attributes);
-        var url = recline.Backend.OpenFDA.processURL(model.attributes);
-        self.gridPreview.render();
-    //    self.state.set('url', url + query);
-        // Best way I could see to update.
-        $("#url").html('<a href="' + url + '?' + query + '">' + url + '?' + query + '</a>');
-        //self.$el.html(Mustache.render(self.template, self.state.toJSON()));
-      });
+          var query = recline.Backend.OpenFDA.createQuery(model.queryState.attributes);
+          var url = recline.Backend.OpenFDA.processURL(model.attributes);
+          self.gridPreview.render();
+          $("#url").html('<a href="' + url + '?' + query + '">' + url + '?' + query + '</a>');
+          $("#results").html(model.recordCount);
+        });
+      }
     },
     updateState: function(state, cb){
       var self = this;
-      var options = state.get('options') || {};
-      state.set('seriesFields', self.$('#control-chart-series').val());
-      state.set('queryFields', self.$('#control-chart-query-count').val());
-      state.set('xDataType', self.$('input[name=control-chart-x-data-type]:checked').val());
-      options.x = self.$('#control-chart-xfield').val();
-      state.set('options', options);
+      state.set('searchField', self.$('#control-chart-search:selected').val());
+      state.set('searchItem', self.$('#control-chart-search-item').val());
+      state.set('countField', self.$('#control-chart-query-count').val());
+
+      state.set('url', $('#url').text());
+      console.log(state);
 
       cb(state);
     }

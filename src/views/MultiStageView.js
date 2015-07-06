@@ -4,6 +4,7 @@
   my.MultiStageView = Backbone.View.extend({
     template: '<h3>{{title}}</h3>' +
               '<input type="hidden" value="{{state}}"/>' +
+              'state: {{state}}' +
               '<div id="step"></div>',
     events:{
       'click #next': 'nextStep',

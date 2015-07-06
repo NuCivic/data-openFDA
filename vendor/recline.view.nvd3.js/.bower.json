@@ -24,20 +24,20 @@
     "timeline": "2.29.1",
     "underscore.deferred": "*",
     "bootstrap-css": "2.3.2",
-    "nvd3": "https://github.com/novus/nvd3.git#7ebd54ca09061022a248bec9a050a4dec93e2b28",
+    "nvd3": "https://github.com/novus/nvd3.git#development",
     "chosen-bootstrap": "*",
     "lodash": "*",
     "recline.backend.gdocs": "https://github.com/okfn/recline.backend.gdocs.git#e81bb237759353932834a38a0ec810441e0ada10",
     "csv.js": "https://github.com/okfn/csv.js.git#976b61384a1808eb464aca5876e5ea46c98deaee"
   },
-  "homepage": "https://github.com/NuCivic/recline.view.nvd3.js",
-  "_release": "3fd4169611",
+  "homepage": "https://github.com/acouch/recline.view.nvd3.js",
+  "_release": "9c78e0c2de",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "3fd41696114206423c025de9fa655ffac5015d84"
+    "commit": "9c78e0c2def8b9d79e52bc7ca57cb5cfc9f032ee"
   },
-  "_source": "https://github.com/NuCivic/recline.view.nvd3.js.git",
+  "_source": "https://github.com/acouch/recline.view.nvd3.js.git",
   "_target": "*",
-  "_originalSource": "https://github.com/NuCivic/recline.view.nvd3.js.git"
+  "_originalSource": "https://github.com/acouch/recline.view.nvd3.js.git"
 }

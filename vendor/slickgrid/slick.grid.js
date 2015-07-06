@@ -66,7 +66,7 @@ if (typeof Slick === "undefined") {
       enableColumnReorder: true,
       asyncEditorLoading: false,
       asyncEditorLoadDelay: 100,
-      forceFitColumns: true,
+      forceFitColumns: false,
       enableAsyncPostRender: false,
       asyncPostRenderDelay: 50,
       autoHeight: false,

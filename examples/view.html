@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>OpenFDA.js Example</title>
+  <title>Recline NVD3</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,7 +17,9 @@
   <!-- 3rd party JS libraries -->
   <script src="../vendor/slickgrid/lib/jquery-1.7.min.js"></script>
   <script src="../vendor/chosen/chosen.jquery.js"></script>
-  <script src="../vendor/lodash/dist/lodash.min.js"></script>
+  <script src="../vendor/csv.js/csv.js"></script>
+  <script src="../vendor/recline.backend.gdocs/backend.gdocs.js"></script>
+  <script src="../vendor/lodash/dist/lodash.js"></script>
   <script src="../vendor/lodash.data/dist/lodash.data.min.js"></script>
   <script src="../vendor/backbone/backbone.js"></script>
   <script src="../vendor/mustache/mustache.js"></script>
@@ -35,33 +37,15 @@
   <script src="../dist/recline.js"></script>
   <script src="../vendor/d3/d3.js"></script>
   <script src="../vendor/nvd3/build/nv.d3.js"></script>
-
-  <link href="../css/app.css" rel="stylesheet">
-</head>
-<body>
-  <h1>Test</h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div id="steps">
-        </div>
-      </div>
-    </div>
-  </div>
   <script type="text/javascript" src="../src/openfda.js"></script>
+  <script src="view.js"></script>
+</head>
+
+<body>
+  <div id="chart"></div>
   <script type="text/javascript" src="../vendor/recline.view.nvd3.js/dist/recline.view.nvd3.min.js"></script>
   <script type="text/javascript" src="../vendor/recline.view.nvd3.js/dist/recline.view.nvd3.controls.min.js"></script>
-  <script type="text/javascript" src="../src/views/recline.URLState.js"></script>
-  <script type="text/javascript" src="../src/views/recline.view.nvd3.embedControl.js"></script>
-  <script type="text/javascript" src="../src/views/MultiStageView.js"></script>
-  <script type="text/javascript" src="../src/views/LoadDataView.js"></script>
-  <script type="text/javascript" src="../src/views/FilterView.js"></script>
-  <script type="text/javascript" src="../src/views/GridView.js"></script>
-  <script type="text/javascript" src="../src/views/DataOptionsView.js"></script>
-  <script type="text/javascript" src="../src/views/ChooseChartView.js"></script>
-  <script type="text/javascript" src="../src/views/ChartOptionsView.js"></script>
-  <script type="text/javascript" src="../src/views/PublishView.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="../src/recline.URLState.js"></script>
 </body>
+
 </html>
