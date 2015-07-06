@@ -12,7 +12,9 @@ It will be edited down to the required 750 words.
 About
 -----
 
-http://openfda.nucivic.build
+DKAN Site: http://openfda.nucivic.build
+
+DevShop Site: http://devshop.openfda.nucivic.build/
 
 ### DKAN on DevShop
 *Open Data Portal on an Open Source Web Stack*
