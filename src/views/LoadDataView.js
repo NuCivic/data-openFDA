@@ -2,15 +2,19 @@
   'use strict';
 
   my.LoadDataView = Backbone.View.extend({
-    template: '<div class="form-group">' +
-                '<label for="control-chart-source">Source</label>' +
-                '<input value="{{source.url}}" type="text" id="control-chart-source" class="form-control" />' +
-              '</div>' +
+    template: 
               '<div class="form-group">' +
+                '<div class="well">' +
+                  'Select an API source. See <a href="https://open.fda.gov/">OpenFDA</a> for details.' +
+                '</div>' +
                 '<select id="control-chart-backend" class="form-control">' +
-                  '<option value="csv">CSV</option>' +
-                  '<option value="gdocs">Google Spreadsheet</option>' +
-                  '<option value="ckan">DataProxy</option>' +
+                  '<option value="drug-event">Drugs - Event</option>' +
+                  '<option value="drug-label">Drugs - Labels</option>' +
+                  '<option value="drug-enforcement">Drugs - Enforcement</option>' +
+                  '<option value="device-event">Devices - Event</option>' +
+                  '<option value="device-enforcement">Devices - Enforcement</option>' +
+                  '<option value="food-event">Food - Event</option>' +
+                  '<option value="food-enforcement">Food - Enforcement</option>' +
                 '</select>' +
               '</div>' +
               '<div id="controls">' +
@@ -22,7 +26,8 @@
       self.state = self.options.state;
       self.model = self.options.model;
       self.stepInfo = {
-        title: 'Load Data',
+        title: 'Select Source',
+        desc: 'Select an API source. See <a href="https://open.fda.gov/">OpenFDA</a> for details.',
         name: 'loadData'
       };
     },
@@ -33,14 +38,16 @@
     updateState: function(state, cb){
       var self = this;
       var url = self.$('#control-chart-source').val();
-      var backend = self.$('#control-chart-backend').val();
+      var source = self.$('#control-chart-backend').val();
+      source = source.split('-');
       var source = {
-        backend: backend,
-        url: url
+        backend: 'openfda',
+        type: source[0],
+        area: source[1]
       };
       state.set('model', new recline.Model.Dataset(source));
       state.set('source', source);
-      state.get('model').queryState.attributes.size = 10000000;
+      state.get('model').queryState.attributes.size = 10;
       state.get('model').fetch().done(function(data){
         cb(state);
       });

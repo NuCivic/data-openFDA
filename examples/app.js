@@ -10,12 +10,9 @@
       el: $('#steps')
     });
 
-    msv.on('multistep:change', function(e){
-     $("#example").hide(); 
-    });
-
     window.router = new recline.URLState();
     msv.addStep(new LoadDataView(sharedObject));
+    msv.addStep(new FilterView(sharedObject));
     msv.addStep(new DataOptionsView(sharedObject));
     msv.addStep(new ChooseChartView(sharedObject));
     msv.addStep(new ChartOptionsView(sharedObject));

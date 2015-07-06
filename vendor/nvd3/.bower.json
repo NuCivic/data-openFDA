@@ -1,0 +1,49 @@
+{
+  "name": "nvd3",
+  "homepage": "http://www.nvd3.org",
+  "authors": [
+    "Bob Monteverde",
+    "Tyler Wolf",
+    "Robin Hu",
+    "Frank Shao",
+    "liquidpele"
+  ],
+  "description": "Re-usable charts and chart components for d3.",
+  "main": [
+    "build/nv.d3.js",
+    "build/nv.d3.css"
+  ],
+  "keywords": [
+    "d3",
+    "visualization",
+    "svg",
+    "charts"
+  ],
+  "license": "Apache License, v2.0",
+  "dependencies": {
+    "d3": "^3.4.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "src",
+    "examples",
+    "GruntFile.js",
+    "*.html",
+    "*.log",
+    "*.xml",
+    "*.json",
+    "*.md"
+  ],
+  "_release": "6cdafffdf6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "development",
+    "commit": "6cdafffdf63850591ad39e36f72b99a3cdcfb839"
+  },
+  "_source": "https://github.com/novus/nvd3.git",
+  "_target": "development",
+  "_originalSource": "https://github.com/novus/nvd3.git"
+}

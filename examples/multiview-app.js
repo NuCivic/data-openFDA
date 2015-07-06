@@ -9,7 +9,6 @@
     }                      // event, enforcement for device
                            // enforcement for food
 
-
     var dataset, views;
     dataset = new recline.Model.Dataset({
       backend: 'openfda',

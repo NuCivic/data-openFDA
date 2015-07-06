@@ -84,6 +84,9 @@
         el: $('#grid'),
         options:{}
       });
+      console.log("HEEEEERE");
+      console.log(self.state.get('model'));
+      console.log(self.grid);
       self.grid.visible = true;
 
       self.assign(self.graph, '#chart-viewport');

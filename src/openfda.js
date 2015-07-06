@@ -49,13 +49,9 @@ var OpenFDA = {};
     return dfd.promise();
   };
 
-  my.query = function(queryObj, dataset) {
-    var dfd = new Deferred();
-    var URL = my.processURL(dataset);
-    queryObj.limit = 10;
-    console.log(queryObj);
-
+  my.createQuery = function(queryObj) {
     var query;
+    console.log(queryObj);
     var size = queryObj.size || 100;
     query = "limit=" + size;
     if (queryObj.from) {
@@ -71,19 +67,38 @@ var OpenFDA = {};
         }
       });
     }
+    if (queryObj.count) {
+      query = query + '&count=' + queryObj.count;
+    }
+    return query;
+  }
+
+  my.query = function(queryObj, dataset) {
+    var dfd = new Deferred();
+    var URL = my.processURL(dataset);
+    queryObj.limit = 10;
+    console.log(queryObj);
+    var query = my.createQuery(queryObj);
       
     console.log(query);
     jQuery.ajax({
-        type: "GET",
-        url: URL,
-        data: query,
-        dataType: "json"
+      type: "GET",
+      url: URL,
+      data: query,
+      dataType: "json"
     }).done(function(data) {
-        var out = {};
-        out.total = data.meta.results.total;
-        out.fields = my.autoExtractFields(data.results[0]);
-        out.hits = data.results;
-        dfd.resolve(out);
+      var out = {};
+      if(data.meta.results) {
+        out.total = data.meta.results.total || data.results.length;
+      }
+      else {
+        out.total = data.results.length;
+      }
+      out.fields = my.autoExtractFields(data.results[0]);
+      out.hits = data.results;
+      console.log(out);
+      console.log(this);
+      dfd.resolve(out);
     });
     return dfd.promise();
   };

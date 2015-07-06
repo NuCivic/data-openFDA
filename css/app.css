@@ -1,8 +1,12 @@
 .recline-slickgrid {
   height: 300px;
 }
-.changelog {
-  display: none;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
+.slickgrid, 
+.slickgrid *,
+.slick-header-column {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+.slick-header-sortable {
 }
