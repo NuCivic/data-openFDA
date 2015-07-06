@@ -59,6 +59,9 @@
       console.log('ChartOptionsView::render');
       var self = this;
       var graphType = self.state.get('graphType');
+      delete self.state.attributes.url;
+      delete self.state.attributes.searchFields;
+      delete self.state.attributes.results;
       var jsonState = self.cleanState(self.state);
       var serialized = router.getSerializedState(jsonState);
       var url = location.protocol + '//' + location.host + location.pathname + 'view.html' + '#' + serialized;
