@@ -3,21 +3,25 @@ Team
 
 **Jon Pugh**
 
-- Lead
+- Product Manager
+- DevOps Engineer
 
 **Federica Pelzel**
 
-- DKAN Product Lead
-- Design
+- Interaction Designer/User Researcher/Usability Tester
 
 **Aaron Couch**
 
-- Lead Developer
-- openfda.js: Recline Backend for Chartmaker
-- https://github.com/NuCivic/openfda.js
+- Technical Architect
+
+Developed openfda.js: Recline Backend for Chartmaker: https://github.com/NuCivic/openfda.js
 
 **Jacinto Capote**
-- Developer
-- Contributed to openfda.js
-- https://github.com/NuCivic/openfda.js/commits/master
 
+- Back End Web Developer
+
+Contributed to openfda.js: https://github.com/NuCivic/openfda.js/commits/master
+
+**Andrew Hoppin**
+
+- Writer/Content Designer/Content Strategist
