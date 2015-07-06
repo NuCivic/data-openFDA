@@ -3,7 +3,6 @@ Feature: OpenFDA DKAN
   @api
   Scenario: Test basic functionality.
     Given I am on the homepage
-    Then I should see "This is just a test. I am expected to fail."
     Then I should see "This is a prototype of DKAN implemented for OpenFDA."
     And I should see "This site is NuCivic's working prototype as part of the application for the GSA 18F Agile Delivery Blanket Purchase Agreement"
     
