@@ -27,8 +27,8 @@ Goals
 - [x] Quickly stand up a data portal with links to the datasets available on open.fda.gov: http://openfda.nucivic.build 
 - [x] Setup a continuous testing & delivery server in minutes with entirely open source software ([DevShop](http://github.com/opendevshop/devshop)).
 - [x] Demonstrate quick and easy localhost development with [Terra](http://github.com/terra-ops/terra), which uses docker containers.
-- [ ] Create a [Recline](http://okfnlabs.org/recline/) backend for OpenFDA: https://github.com/NuCivic/openfda.js
-- [ ] Create tools to import large datasets directly into Drupal Search API powered back-ends like Solr.  (If possible.)
+- [x] Create a [Recline](http://okfnlabs.org/recline/) backend for OpenFDA: https://github.com/NuCivic/openfda.js
+- [ ] <strike>Create tools to import large datasets directly into Drupal Search API powered back-ends like Solr.  (If possible.)</strike> This was decided against after user feedback.
 
 Steps
 -----
