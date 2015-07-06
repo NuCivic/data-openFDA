@@ -30,8 +30,12 @@ Goals
 - [x] Create a [Recline](http://okfnlabs.org/recline/) backend for OpenFDA: https://github.com/NuCivic/openfda.js
 - [ ] <strike>Create tools to import large datasets directly into Drupal Search API powered back-ends like Solr.  (If possible.)</strike> This was decided against after user feedback.
 
-Steps
------
+Steps Taken
+-----------
+
+This documents the steps taken to setup the project at http://openfda.nucivic.build.
+
+They do not represent what is needed to get the project running locally. 
 
 1. Create a GitHub Repository: https://github.com/NuCivic/data-openFDA
 2. Add the DKAN Starter repository located at https://github.com/nucivic/data_starter as a remote and pull the master branch into the repo.
@@ -111,7 +115,7 @@ To enable behat testing:
 When a pull request environment is created, the live environment will be cloned with all of its settings.  Tests will be run on the PR environment and status will be sent back to GitHub, providing a Continuous Testing infrastructure.
 
 Running "Locally"
-=================
+-----------------
 
 Because this is just a Drupal site, it can be run locally on any number of tools: Acquia DevDeskop, MAMP, Kalabox, Vagrant, etc.
 
