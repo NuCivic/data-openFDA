@@ -46,7 +46,7 @@
       var self = this;
       if(e.type === 'keydown' && parseInt(e.keyCode) !== 13) return;
       var serialized = router.getSerializedState(self.state);
-      var url = location.protocol + '//' + location.host + location.pathname + '/view.html' + '#' + serialized;
+      var url = location.protocol + '//' + location.host + location.pathname + 'view.html' + '#' + serialized;
 
       var iframeHtml = Mustache.render(self.embedTmpl, {
         source: url,
@@ -61,7 +61,7 @@
       var graphType = self.state.get('graphType');
       var jsonState = self.cleanState(self.state);
       var serialized = router.getSerializedState(jsonState);
-      var url = location.protocol + '//' + location.host + location.pathname + '/view.html' + '#' + serialized;
+      var url = location.protocol + '//' + location.host + location.pathname + 'view.html' + '#' + serialized;
 
       var iframeHtml = Mustache.render(self.embedTmpl, {
         source: url,
