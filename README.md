@@ -78,41 +78,25 @@ DKAN Setup
   4. Click "Save configuration".
 
 
-Testing Deployment
+Continuous Delivery
+-------------------
+
+The site was setup using devshop in "Continuous Delivery" mode.  This means that any pushes to the primary `master` branch will automatically be deployed. 
+
+When using the GitHub Pull Request interface, clicking "Merge" will trigger a deploy to the live site.
+
+Continuous Testing
 ------------------
 
-With the Webhook setup, any git pushes to the branch being used for the live environment will automatically be deployed. 
+Developers should create a branch from the `master` branch to do their work.  When they feel the code is ready, they submit a Pull Request. 
 
-Make a change and commit and push it, then view the devshop dashboard and you should see the deployment of live in progress.
+When a Pull Request is submitted, DevShop will automatically create a new environment and run the tests, notifying the developer through the github interface.
 
-Pull Request Environments
--------------------------
-
-Instead of pushing code directly to the `master` branch, and thereby deploying to the live environment, you can create a Pull Request in GitHub on a new branch, and DevShop will create a new environment based on that branch.
+When new code is pushed to the Pull Request branch, it is automatically deployed to that new environment, and tests are run again.
 
 If your project is configured to "Delete Pull Request Environments" then the environments will be destroyed when the pull request is merged or closed.
 
-Behat Testing Setup
--------------------
-
-DevShop can be configured to automatically run behat tests when you push code to your site.
-
-To enable behat testing:
-
-1. Enable the "DevShop Testing" module.
-2. Visit Project Settings page.
-2. Select "Behat" as the "Test Type".
-3. Enter the path to your behat tests folder into "Behat folder path".  For this repo, it is "tests"
-4. Enter the path to the behat executable. For almost all projects it will be "bin/behat".
-5. Click "Save".
-6. Enable testing on the "live" environment:
-  1. Click "Settings" > "live". or click the Gear icon in an environment and click "Environment settings".
-  2. Check "Run Tests" under "Deployment Hooks".
-  3. Select the tests you wish to run for this environment, or leave unchecked to run them all.
-  4. Click "Save".
-7. Click the "Run Tests" button to try out the test runner or push code to your branch to trigger a test run.
-
-When a pull request environment is created, the live environment will be cloned with all of its settings.  Tests will be run on the PR environment and status will be sent back to GitHub, providing a Continuous Testing infrastructure.
+See an example pull request here: https://github.com/NuCivic/data-openFDA/pull/25
 
 Running "Locally"
 -----------------
