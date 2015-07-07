@@ -1,0 +1,14 @@
+.recline-slickgrid {
+  height: 300px;
+}
+.slickgrid, 
+.slickgrid *,
+.slick-header-column {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+#data-preview {
+  clear: both;
+  padding 60px 0 0 0;
+}
