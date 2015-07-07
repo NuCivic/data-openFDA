@@ -5,18 +5,18 @@ Open FDA Data Portal
 
 This repo is NuCivic's working prototype as part of the application for the GSA 18F Agile Delivery Blanket Purchase Agreement.  Our prototype is an instance of the DKAN Open Data Portal, setup with OpenFDA data, extended with a new OpenFDA.js javascript library, running on the open source continuous testing & delivery platform DevShop and , and hosted on IBM’s Softlayer IaaS
 
-- [x] Prototype: openfda.nucivic.build
-- [x] About DKAN: nucivic.com/dkan
-- [x] About DevShop: devshop.readthedocs.org
-- [x] About OpenFDA Recline Backend: https://github.com/NuCivic/openfda.js 
+- Prototype: openfda.nucivic.build
+- About DKAN: nucivic.com/dkan
+- About DevShop: devshop.readthedocs.org
+- About OpenFDA Recline Backend: https://github.com/NuCivic/openfda.js 
 
 We elected to deploy the Drupal-based DKAN platform for this prototype in order to demonstrate the speed and utility of cataloging and visualizing data from an API within a comprehensive open data portal, including the ability to: 
-- [x] catalog datasets by pointing to OpenFDA APIs
-- [x] describe datasets with US Project Open Data compliant metadata including data.json
-- [x] apply workflow to datasets by organizing them into Groups
-- [x] provide a full featured content management system to help content creators put data in context
-- [x] provide a portal that could readily be extended in an ongoing agile project with 100s of pluggable Drupal features like blogs and public comments
-- [x] integrate well with cross-platform javascript libraries like Recline.js for data visualization
+- catalog datasets by pointing to OpenFDA APIs
+- describe datasets with US Project Open Data compliant metadata including data.json
+- apply workflow to datasets by organizing them into Groups
+- provide a full featured content management system to help content creators put data in context
+- provide a portal that could readily be extended in an ongoing agile project with 100s of pluggable Drupal features like blogs and public comments
+- integrate well with cross-platform javascript libraries like Recline.js for data visualization
 
 About
 -----
