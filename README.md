@@ -84,7 +84,7 @@ DKAN uses Behat tests, and we also created a custom test for the openFDA site: h
 
 **set up or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider**
 
-The site was setup using devshop in "Continuous Delivery" mode (any pushes to primary master branch will automatically be deployed).  DevShop creates test environments for each Pull Request, and runs tests on every git push.  Merge to ‘master’ branch deploys to the live environment (http://devshop.openfda.nucivic.build/).  
+The site was setup using devshop in "Continuous Delivery" mode (pushes to primary master branch will automatically be deployed).  DevShop creates test environments for each Pull Request, and runs tests on every git push.  Merge to ‘master’ branch deploys to live environment (http://devshop.openfda.nucivic.build/ and https://github.com/NuCivic/data-openFDA/pull/25).  
 
 **set up or used configuration management**
 
