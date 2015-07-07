@@ -5,9 +5,10 @@ Open FDA Data Portal
 
 This repo is NuCivic's working prototype as part of the application for the GSA 18F Agile Delivery Blanket Purchase Agreement.  Our prototype is an instance of the DKAN Open Data Portal, setup with OpenFDA data, extended with a new OpenFDA.js javascript library, running on the open source continuous testing & delivery platform DevShop and , and hosted on IBM’s Softlayer IaaS
 
-- Prototype: openfda.nucivic.build
-- About DKAN: nucivic.com/dkan
-- About DevShop: devshop.readthedocs.org
+- OpenFDA DKAN Prototype: http://openfda.nucivic.build
+- DevShop Site: http://devshop.openfda.nucivic.build/
+- About DKAN: http://nucivic.com/dkan
+- About DevShop: http://devshop.readthedocs.org
 - About OpenFDA Recline Backend: https://github.com/NuCivic/openfda.js 
 
 We elected to deploy the Drupal-based DKAN platform for this prototype in order to demonstrate the speed and utility of cataloging and visualizing data from an API within a comprehensive open data portal, including the ability to: 
@@ -18,20 +19,18 @@ We elected to deploy the Drupal-based DKAN platform for this prototype in order 
 - provide a portal that could readily be extended in an ongoing agile project with 100s of pluggable Drupal features like blogs and public comments
 - integrate well with cross-platform javascript libraries like Recline.js for data visualization
 
-About
------
-
-DKAN Site: http://openfda.nucivic.build
-
-DevShop Site: http://devshop.openfda.nucivic.build/
+Approach
+--------
+- Put together an Agile team and delivered prototype within one two week sprint
+- Setup a continuous testing & delivery server in minutes with entirely open source software (DevShop), deploying the DKAN instance on Softlayer IaaS (while often hosted by commercial Drupal PaaS providers, for this prototype we wanted to demonstrate how a fully open source stack from devops to front-end presentation layer could quickly deploy and maintain a full turnkey solution on any IaaS).
+- Performed minimal configuration of DKAN’s Bootstrap-based front-end to apply OpenFDA branding
+- Catalogued OpenFDA API endpoints using DKAN’s administrative GUI to add them.  
+- Conducted user feedback sessions and learned that user utility of the application was limited by a) the challenge of importing large datasets directly into DKAN, and b) that the standard Recline.js backend data previews that ship with DKAN were not effective in this case because of OpenFDA’s unique API (while we already had an ElasticSearch backend, OpenFDA only supports 4 query parameters which made it challenging to filter, search across all fields, select specific fields etc.).
+- Based on further feedback, after vetting creating tools to import large datasets directly into Drupal Search API-powered back-ends like Solr, we elected instead to create a new custom OpenFDA Recline Backend to translate the data provided by the OpenFDA API into a format consumable by Recline.js.(https://github.com/NuCivic/openfda.js), resulting in the data visualizations visible in the prototype today, and also affording end-users the ability to create visualizations (http://openfda.nucivic.build/create-chart).
+- Set up automated tests and monitoring tools to maintain the production application.
 
 ### DKAN on DevShop
 *Open Data Portal on an Open Source Web Stack*
-
-Our prototype will be an instance of the DKAN Open Data Portal, setup with OpenFDA data, running on the open source continous testing & delivery platform DevShop.
-
-- About DKAN: [nucivic.com/dkan](http://nucivic.com/dkan/)
-- About DevShop: [devshop.readthedocs.org](http://devshop.readthedocs.org/)
 
 Goals
 -----
