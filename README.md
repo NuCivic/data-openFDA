@@ -1,7 +1,7 @@
 Open FDA Data Portal
 ====================
 
-This repo is NuCivic's working prototype for the GSA 18F Agile Delivery Blanket Purchase Agreement.  Our prototype is an instance of the DKAN Open Data Portal, setup with OpenFDA data, extended with a new OpenFDA.js javascript library, running on the open source continuous testing & delivery platform DevShop and , and hosted on IBM’s Softlayer IaaS
+This repo is NuCivic's working prototype for the GSA 18F Agile Delivery Blanket Purchase Agreement.  Our prototype is an instance of the DKAN Open Data Portal, setup with OpenFDA data, extended with a new OpenFDA.js javascript library, running on the open source continuous testing & delivery platform DevShop and hosted on IBM’s Softlayer IaaS
 
 - OpenFDA DKAN Prototype: http://openfda.nucivic.build
 - DevShop Site: http://devshop.openfda.nucivic.build/
