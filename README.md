@@ -36,11 +36,11 @@ An internal team Skype call was convened to determine staffing; Jon Pugh was ass
 
 **assembled a multidisciplinary and collaborative team including a minimum of 5 labor categories from the Development Pool labor categories to design and develop the prototype:**
 
-Jon Pugh organized a team on this same Skype call based on skills and availability, and later added participants via Slack channel as project needs became clearer: https://github.com/NuCivic/data-openFDA/blob/master/TEAM.md 
+Jon Pugh organized a team on Skype call based on skills and availability, and later added participants via Slack channel as project needs became clearer: https://github.com/NuCivic/data-openFDA/blob/master/TEAM.md 
 
 **understand what people need, by including people in the prototype development and design process:**
 
-Team involved NuCivic business team and Fig Leaf partner organization team both not directly involved in prototype development, throughout the project, as subject matter experts in end-user open data use cases, and as non-engineer end-user QA testers (e.g.: https://github.com/NuCivic/data-openFDA/issues/20, https://github.com/NuCivic/data-openFDA/issues/21, https://github.com/NuCivic/data-openFDA/issues/26).
+Team involved NuCivic business team and Fig Leaf partner team, both not directly involved in prototype development, throughout the project, as subject matter experts in end-user open data use cases, and as non-engineer QA testers (e.g.: https://github.com/NuCivic/data-openFDA/issues/20, https://github.com/NuCivic/data-openFDA/issues/21, https://github.com/NuCivic/data-openFDA/issues/26).
 
 **used at least three "human-centered design" techniques or tools**
 
@@ -59,7 +59,7 @@ Demonstrated work in progress prototype to non-engineers such as Jared Shapiro a
 
 **used an iterative approach, where feedback informed subsequent work or versions of the prototype**
 
-Team talked through proposed approach on calls with NuCivic business team and Fig Leaf partner, and used this feedback to establish initial technical and conceptual approach-- cataloguing and visualizing OpenFDA data by configuring and extending DKAN.  After initial deployment, the team solicited additional feedback via email and slack, resulting in specific issues we then addressed (e.g.: based on receiving feedback that the initial state of datasets (first calls, then reinforced on https://github.com/NuCivic/data-openFDA/issues/21 and https://github.com/NuCivic/data-openFDA/issues/23), we invested in building the OpenFDA Recline Backend charts tool (https://github.com/NuCivic/openfda.js), after determining it was feasible in the timeline.  
+Team talked through proposed approach on calls with NuCivic business team and Fig Leaf partner, and used this feedback to establish initial technical and conceptual approach-- cataloguing and visualizing OpenFDA data by configuring and extending DKAN.  After initial deployment, the team solicited additional feedback via email and slack, resulting in specific issues we then addressed (e.g.: based on receiving feedback on initial state of datasets UX (first calls, then reinforced on https://github.com/NuCivic/data-openFDA/issues/21 and https://github.com/NuCivic/data-openFDA/issues/23), we invested in building the OpenFDA Recline Backend charts tool (https://github.com/NuCivic/openfda.js), after determining it was feasible in the timeline.  
 
 **created a prototype that works on multiple devices, and presents a responsive design**
 
@@ -67,6 +67,8 @@ DKAN leverages bootstrap (http://getbootstrap.com/), so is responsive out of the
 
 **used at least five modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)**
 
+- Backbone: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=backbone 
+- D3: https://github.com/NuCivic/data-openFDA/tree/master/docroot/sites/all/libraries/d3
 - Drupal: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=drupal 
 - DKAN: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=dkan 
 - JQuery: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=jquery 
@@ -100,7 +102,7 @@ In the interests of time, the main prototype site itself at openfda.nucivic.buil
 
 **provided sufficient documentation to install and run their prototype on another machine**
 
-DKAN can be installed locally on any number of tools: Acquia DevDeskop, MAMP, Kalabox, Vagrant, or our new tool for Drupal sites on Docker: https://github.com/terra-ops/terra-app (installation Instructions (http://terra.readthedocs.org/en/latest/install/ and (http://terra.readthedocs.org/en/latest/drupal/). Specific process documentation about this prototype: https://github.com/NuCivic/data-openFDA/blob/master/docs/PROCESS.md.  
+DKAN can be installed locally on any number of tools: Acquia DevDeskop, MAMP, Vagrant, or our new tool for Drupal sites on Docker: https://github.com/terra-ops/terra-app (installation Instructions (http://terra.readthedocs.org/en/latest/install/ and (http://terra.readthedocs.org/en/latest/drupal/). Specific process documentation about this prototype: https://github.com/NuCivic/data-openFDA/blob/master/docs/PROCESS.md.  
 Commercial PaaS alternatives include Pantheon (http://pantheon.io) or Acquia (http://acquia.com).
 
 **openly licensed and free of charge:**
