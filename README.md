@@ -76,7 +76,7 @@ DKAN leverages bootstrap (http://getbootstrap.com/), so is responsive out of the
 - Recline: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=recline.js 
 - DevShop: https://github.com/NuCivic/data-openFDA/search?utf8=%E2%9C%93&q=devshop 
 
-**Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) provider, and indicated which provider they used**
+**deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) provider, and indicated which provider they used**
 
 The prototype’s IaaS is Softlayer (http://www.softlayer.com/), and we manage our own PaaS running DevShop (https://github.com/opendevshop/devshop).
 
@@ -105,5 +105,6 @@ In the interests of time, the main prototype site itself at openfda.nucivic.buil
 DKAN can be installed locally on any number of tools: Acquia DevDeskop, MAMP, Kalabox, Vagrant, or our new tool for Drupal sites on Docker: https://github.com/terra-ops/terra-app (installation Instructions (http://terra.readthedocs.org/en/latest/install/ and (http://terra.readthedocs.org/en/latest/drupal/). Specific process documentation about this prototype: https://github.com/NuCivic/data-openFDA/blob/master/docs/PROCESS.md.  
 Commercial PaaS alternatives include Pantheon (http://pantheon.io) or Acquia (http://acquia.com).
 
-**Openly Licensed and Free of Charge:**
+**openly licensed and free of charge:**
+
 Components are open sourced, including (https://github.com/NuCivic/dkan/blob/7.x-1.x/LICENSE.txt and (https://github.com/opendevshop/devshop/blob/0.x/LICENSE.txt  
